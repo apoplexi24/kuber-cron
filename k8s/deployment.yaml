@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuber-cron
+  labels:
+    app: kuber-cron
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuber-cron
+  template:
+    metadata:
+      labels:
+        app: kuber-cron
+    spec:
+      containers:
+      - name: kuber-cron
+        image: your-registry/kuber-cron:latest  # Replace with your image
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+        - name: logs-volume
+          mountPath: /app/logs
+        env:
+        - name: KUBER_CRON_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /metrics
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      volumes:
+      - name: config-volume
+        configMap:
+          name: kuber-cron-config
+      - name: logs-volume
+        emptyDir: {}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kuber-cron-config
+data:
+  cron_jobs.yaml: |
+    # Your cron jobs configuration will be mounted here
+    # You can update this ConfigMap to modify cron jobs without redeploying 

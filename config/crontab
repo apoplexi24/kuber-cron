@@ -1,0 +1,20 @@
+# Example crontab file for kuber-cron
+# Format:
+# * * * * * python path/to/script.py >> /path/to/logfile 2>&1
+# 
+# Field          Allowed values
+# -----          --------------
+# minute         0-59
+# hour           0-23
+# day of month   1-31
+# month          1-12 (or names, see below)
+# day of week    0-7 (0 or 7 is Sunday, or use names)
+#
+# Example: Run backup every day at midnight
+0 0 * * * python src/jobs/backup.py >> /var/log/kuber-cron/backup.log 2>&1
+
+# Example: Run cleanup every hour
+0 * * * * python src/jobs/cleanup.py >> /var/log/kuber-cron/cleanup.log 2>&1
+
+# Example: Run weekly report every Monday at midnight
+0 0 * * 1 python src/jobs/reports.py >> /var/log/kuber-cron/reports.log 2>&1 
