@@ -13,24 +13,52 @@ A robust Kubernetes-based cron job scheduler specifically designed for Python ap
   - Microsoft SQL Server (ODBC 17)
   - PostgreSQL (psycopg2)
   - MySQL (mysqlclient)
+- 🐳 **Dev Container Support**: Ready-to-use development environment with all required tools
 
 ## Project Structure
 
 ```
 kuber-cron/
+├── .devcontainer/      # Dev container configuration
+│   ├── devcontainer.json
+│   └── Dockerfile
 ├── config/
-│   └── crontab          # Standard crontab file for Python job definitions
+│   └── crontab        # Standard crontab file for Python job definitions
 ├── src/
-│   ├── jobs/           # Your Python cron job implementations
-│   └── scheduler.py    # Main scheduler service
+│   ├── jobs/         # Your Python cron job implementations
+│   └── scheduler.py  # Main scheduler service
 ├── k8s/
 │   └── deployment.yaml # Kubernetes deployment manifest
-├── Dockerfile          # Container build configuration
-├── pyproject.toml      # Poetry dependency management
-└── LICENSE            # MIT License
+├── Dockerfile        # Container build configuration
+├── pyproject.toml    # Poetry dependency management
+└── LICENSE          # MIT License
 ```
 
-## Quick Start
+## Development Setup
+
+### Using Dev Container (Recommended)
+
+1. **Prerequisites**:
+   - Docker Desktop
+   - Visual Studio Code with "Remote - Containers" extension
+   - Git
+
+2. **Start Development Environment**:
+   - Open the project in VS Code
+   - When prompted, click "Reopen in Container"
+   - VS Code will build and start the dev container with:
+     - Python 3.12
+     - Kubernetes tools (kubectl, Helm)
+     - Google Cloud SDK
+     - Poetry for dependency management
+     - Essential VS Code extensions
+
+3. **Install Dependencies**:
+   ```bash
+   poetry install
+   ```
+
+### Manual Setup
 
 1. **Build the Docker Image**:
    ```bash
