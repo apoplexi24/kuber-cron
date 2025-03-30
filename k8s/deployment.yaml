@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: kuber-cron
-        image: your-registry/kuber-cron:latest  # Replace with your image
-        imagePullPolicy: Always
+        image: kuber-cron:latest  # Using our local image
+        imagePullPolicy: Never    # Never pull from registry
         resources:
           requests:
             memory: "256Mi"
@@ -29,7 +29,7 @@ spec:
         - name: config-volume
           mountPath: /app/config
         - name: logs-volume
-          mountPath: /app/logs
+          mountPath: /var/log/kuber-cron
         env:
         - name: KUBER_CRON_NAMESPACE
           valueFrom:
@@ -59,6 +59,9 @@ kind: ConfigMap
 metadata:
   name: kuber-cron-config
 data:
-  cron_jobs.yaml: |
-    # Your cron jobs configuration will be mounted here
-    # You can update this ConfigMap to modify cron jobs without redeploying 
+  crontab: |
+    # Run CPU stress test every minute
+    * * * * * python src/jobs/cpu_stress.py >> /var/log/kuber-cron/cpu_stress.log 2>&1
+
+    # Run backup job every hour
+    0 * * * * python src/jobs/backup.py >> /var/log/kuber-cron/backup.log 2>&1 

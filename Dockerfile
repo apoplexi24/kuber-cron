@@ -6,48 +6,35 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install ODBC 17 driver
-RUN curl -sSL -O https://packages.microsoft.com/config/debian/$(grep VERSION_ID /etc/os-release | cut -d '"' -f 2 | cut -d '.' -f 1)/packages-microsoft-prod.deb \
-    && dpkg -i packages-microsoft-prod.deb \
-    && rm packages-microsoft-prod.deb \
-    && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 \
-    && ACCEPT_EULA=Y apt-get install -y mssql-tools \
-    && apt-get install -y unixodbc-dev \
-    && apt-get install -y libgssapi-krb5-2 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Add SQL Server tools to PATH
-ENV PATH="${PATH}:/opt/mssql-tools/bin"
-
-# Install PostgreSQL and MySQL drivers
+# Install database drivers and cron
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     default-libmysqlclient-dev \
-    default-mysql-client \
+    cron \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL https://install.python-poetry.org | python3 - \
+    && ln -s /root/.local/bin/poetry /usr/local/bin/poetry
 
 # Set working directory
 WORKDIR /app
 
-# Create state directory
+# Create necessary directories
 RUN mkdir -p /var/run/kuber-cron
 
-# Copy project files
+# Copy dependency files
 COPY pyproject.toml poetry.lock ./
-COPY src/ ./src/
+
+# Copy source code
+COPY src/ src/
+
+# Copy crontab configuration
 COPY config/crontab /etc/crontab
 
-# Install dependencies
+# Install dependencies without creating a virtual environment
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-dev --no-interaction --no-ansi
-
-# Set environment variables
-ENV PYTHONPATH=/app
-ENV PYTHONUNBUFFERED=1
+    && poetry install --no-interaction --no-ansi
 
 # Run the scheduler
-CMD ["poetry", "run", "python", "-m", "src.scheduler"] 
+CMD ["python", "src/scheduler.py"] 

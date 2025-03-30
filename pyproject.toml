@@ -13,6 +13,7 @@ python-crontab = "^3.0.0"
 prometheus-client = "^0.19.0"
 fastapi = "^0.109.2"
 uvicorn = "^0.27.1"
+croniter = "^2.0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
