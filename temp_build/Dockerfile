@@ -29,12 +29,18 @@ RUN mkdir -p /var/run/kuber-cron && \
 COPY pyproject.toml poetry.lock ./
 
 # Create source directories
-RUN mkdir -p /app/src/jobs && \
-    chmod 777 /app/src && \
-    chmod 777 /app/src/jobs
+RUN mkdir -p /app/src/jobs
 
-# Copy source code
-COPY src/ /app/src/
+# Copy source code files individually
+COPY src/scheduler.py /app/src/
+COPY src/jobs/__init__.py /app/src/jobs/
+COPY src/jobs/backup.py /app/src/jobs/
+COPY src/jobs/cpu_stress.py /app/src/jobs/
+COPY src/jobs/memory_stress.py /app/src/jobs/
+COPY src/jobs/test.py /app/src/jobs/
+
+# Set permissions
+RUN chmod -R 777 /app/src
 
 # Copy crontab configuration
 COPY config/crontab /app/crontab
@@ -43,9 +49,8 @@ COPY config/crontab /app/crontab
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-# Ensure all Python scripts are executable and have correct permissions
-RUN find /app/src -type f -name "*.py" -exec chmod 777 {} \; && \
-    chown -R root:root /app/src
+# Ensure all Python scripts are executable
+RUN find /app/src -name "*.py" -exec chmod +x {} \;
 
 # Run the scheduler
 CMD ["python", "src/scheduler.py"] 

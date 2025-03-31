@@ -1,0 +1,168 @@
+2025-03-31 08:41:10,181 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:41:40,235 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:42:00,390 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:42:30,453 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:43:00,712 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:43:30,769 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:44:00,918 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:44:30,976 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:45:00,524 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:45:30,565 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:46:00,748 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:46:30,813 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:47:01,086 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:47:31,148 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:48:00,292 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:48:30,342 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:49:00,596 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:49:30,658 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:50:00,822 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:50:30,857 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:51:01,104 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:51:31,158 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:52:00,301 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:52:30,358 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:53:00,610 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:53:30,658 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:54:00,817 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:54:30,881 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:55:00,131 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:55:30,184 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:56:00,343 - __main__ - INFO - Starting CPU stress test...
+Process Process-12:
+Process Process-3:
+Process Process-4:
+Process Process-10:
+Process Process-9:
+Process Process-11:
+Process Process-7:
+Process Process-8:
+Process Process-5:
+Traceback (most recent call last):
+Process Process-6:
+Process Process-1:
+Process Process-2:
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 57, in <module>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+    run_cpu_stress() 
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 43, in run_cpu_stress
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+KeyboardInterrupt
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/usr/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+KeyboardInterrupt
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+KeyboardInterrupt
+  File "/workspaces/kuber-cron/src/jobs/cpu_stress.py", line 21, in cpu_intensive_task
+    time.sleep(0.1)  # Small delay to prevent complete CPU lock
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+    time.sleep(30)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+2025-03-31 08:58:13,130 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:58:43,188 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 08:59:00,434 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 08:59:30,486 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 09:00:00,642 - __main__ - INFO - Starting CPU stress test...
+2025-03-31 09:00:30,698 - __main__ - INFO - CPU stress test completed successfully
+2025-03-31 10:19:06,431 - __main__ - INFO - Starting CPU stress test at 80% for 30 seconds...
+2025-03-31 10:19:06,795 - __main__ - INFO - Started process on core 0
+2025-03-31 10:19:06,797 - __main__ - INFO - Starting CPU stress on core 0 at 100%
+2025-03-31 10:19:06,797 - __main__ - INFO - Started process on core 1
+2025-03-31 10:19:06,799 - __main__ - INFO - Starting CPU stress on core 1 at 100%
+2025-03-31 10:19:06,799 - __main__ - INFO - Started process on core 2
+2025-03-31 10:19:06,801 - __main__ - INFO - Starting CPU stress on core 2 at 100%
+2025-03-31 10:19:06,802 - __main__ - INFO - Started process on core 3
+2025-03-31 10:19:06,805 - __main__ - INFO - Starting CPU stress on core 3 at 100%
+2025-03-31 10:19:06,805 - __main__ - INFO - Started process on core 4 at 47600%
+2025-03-31 10:19:06,813 - __main__ - INFO - Starting CPU stress on core 4 at 47600%
+2025-03-31 10:19:36,902 - __main__ - INFO - Received signal 15. Cleaning up...
+2025-03-31 10:19:37,002 - __main__ - INFO - Received signal 15. Cleaning up...
+2025-03-31 10:19:37,007 - __main__ - INFO - Received signal 15. Cleaning up...
+2025-03-31 10:19:37,010 - __main__ - INFO - Received signal 15. Cleaning up...
+2025-03-31 10:19:37,102 - __main__ - INFO - Received signal 15. Cleaning up...
+2025-03-31 10:19:37,105 - __main__ - INFO - CPU stress test completed successfully

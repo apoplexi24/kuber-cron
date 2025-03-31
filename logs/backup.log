@@ -1,0 +1,9 @@
+2025-03-31 08:58:43,284 - __main__ - INFO - Starting database backup...
+2025-03-31 08:58:48,290 - __main__ - INFO - Backup completed successfully
+2025-03-31 09:00:30,805 - __main__ - INFO - Starting database backup...
+Traceback (most recent call last):
+  File "/workspaces/kuber-cron/src/jobs/backup.py", line 38, in <module>
+    run_backup() 
+  File "/workspaces/kuber-cron/src/jobs/backup.py", line 29, in run_backup
+    time.sleep(5)
+KeyboardInterrupt

@@ -18,16 +18,15 @@ spec:
       - name: kuber-cron
         image: kuber-cron:latest  # Using our local image
         imagePullPolicy: Never    # Never pull from registry
+        workingDir: /app
         resources:
-          requests:
-            memory: "256Mi"
-            cpu: "100m"
           limits:
+            cpu: "200m"
             memory: "512Mi"
-            cpu: "500m"
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
         volumeMounts:
-        - name: config-volume
-          mountPath: /app/config
         - name: logs-volume
           mountPath: /var/log/kuber-cron
         env:
@@ -41,27 +40,17 @@ spec:
             port: 8000
           initialDelaySeconds: 5
           periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 2
         readinessProbe:
           httpGet:
             path: /metrics
             port: 8000
           initialDelaySeconds: 5
           periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 2
       volumes:
-      - name: config-volume
-        configMap:
-          name: kuber-cron-config
       - name: logs-volume
-        emptyDir: {}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: kuber-cron-config
-data:
-  crontab: |
-    # Run CPU stress test every minute
-    * * * * * python src/jobs/cpu_stress.py >> /var/log/kuber-cron/cpu_stress.log 2>&1
-
-    # Run backup job every hour
-    0 * * * * python src/jobs/backup.py >> /var/log/kuber-cron/backup.log 2>&1 
+        persistentVolumeClaim:
+          claimName: kuber-cron-logs-pvc 

@@ -2,7 +2,7 @@
 #* * * * * python src/jobs/cpu_stress.py 100 6 >> /var/log/kuber-cron/cpu_stress.log 2>&1
 
 # Memory stress test job
-* * * * * python src/jobs/memory_stress.py 1024 120 >> /var/log/kuber-cron/memory_stress.log 2>&1
+* * * * * python src/jobs/memory_stress.py >> /var/log/kuber-cron/memory_stress.log 2>&1
 
 # Backup job (commented out)
 #*/2 * * * * python src/jobs/backup.py >> /var/log/kuber-cron/backup.log 2>&1

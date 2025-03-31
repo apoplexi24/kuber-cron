@@ -1,0 +1,6 @@
+# Test jobs for kuber-cron
+# Run CPU stress test every minute
+* * * * * python src/jobs/cpu_stress.py >> logs/cpu_stress.log 2>&1
+
+# Run backup job every 2 minutes
+*/2 * * * * python src/jobs/backup.py >> logs/backup.log 2>&1 
